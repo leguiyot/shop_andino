@@ -1,0 +1,27 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos ZIP (se generan localmente)
+*.zip
+
+# Logs
+*.log
+error_log
+
+# Node modules (si aplica)
+node_modules/
+
+# Variables de entorno
+.env
+.env.local
+
+# Archivos temporales de Windows
+$RECYCLE.BIN/

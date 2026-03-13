@@ -1,0 +1,263 @@
+/* Menu Styles - Inspirado en Bridge */
+
+/* Menú principal */
+.main_menu {
+    display: flex;
+    align-items: center;
+    height: 85px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    z-index: 1000;
+}
+
+.main_menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.main_menu li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main_menu li.narrow {
+    margin-right: 35px;
+}
+
+.main_menu li:last-child {
+    margin-right: 0;
+}
+
+/* Enlaces del menú - Exactamente como Bridge */
+.main_menu a {
+    display: flex;
+    align-items: center;
+    height: 85px;
+    line-height: 85px;
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0 5px;
+}
+
+.main_menu a:hover {
+    color: #e6ae48;
+}
+
+/* Item activo */
+.main_menu li.active a,
+.main_menu li.current_page_item a,
+.main_menu li.current-menu-item a {
+    color: #e6ae48;
+}
+
+/* Iconos del menú (Hidden como en Bridge) */
+.main_menu .menu_icon {
+    display: none;
+}
+
+.main_menu .menu_icon.sf-hidden {
+    display: none !important;
+}
+
+/* Texto del menú */
+.main_menu span {
+    position: relative;
+}
+
+/* Plus indicator (Hidden por defecto) */
+.main_menu .plus {
+    display: none;
+}
+
+/* Submenús */
+.main_menu .second {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    min-width: 220px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 999;
+    padding: 15px 0;
+    border-top: 2px solid #e6ae48;
+}
+
+.main_menu li:hover .second {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.main_menu .second li {
+    display: block;
+    margin: 0;
+    width: 100%;
+}
+
+.main_menu .second a {
+    height: auto;
+    line-height: 1.4;
+    padding: 12px 20px;
+    color: #666;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.main_menu .second li:last-child a {
+    border-bottom: none;
+}
+
+.main_menu .second a:hover {
+    color: #e6ae48;
+    background: rgba(230, 174, 72, 0.05);
+}
+
+/* Mobile menu toggle (para responsive) */
+.mobile_menu_toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.mobile_menu_toggle span {
+    width: 100%;
+    height: 2px;
+    background: #333;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile menu overlay */
+.mobile_menu_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile_menu_overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile_menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.mobile_menu ul {
+    flex-direction: column;
+    gap: 0;
+}
+
+.mobile_menu li {
+    margin: 0;
+    width: 100%;
+}
+
+.mobile_menu a {
+    height: auto;
+    line-height: 1.4;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.mobile_menu a:hover {
+    color: #e6ae48;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main_menu li.narrow {
+        margin-right: 25px;
+    }
+    
+    .main_menu a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main_menu {
+        display: none;
+    }
+    
+    .mobile_menu_toggle {
+        display: flex;
+    }
+    
+    .header_inner {
+        justify-content: space-between;
+    }
+    
+    /* Animación del toggle */
+    .mobile_menu_toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .mobile_menu_toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile_menu_toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+@media (max-width: 480px) {
+    .main_menu .second {
+        min-width: 200px;
+        left: -50px;
+    }
+}
+
+/* Hover effects específicos para replicar Bridge */
+.main_menu li:hover > a {
+    color: #e6ae48;
+}
+
+.main_menu li.menu-item-has-children > a::after {
+    content: '';
+    margin-left: 8px;
+}
+
+/* Efectos de transición suaves como Bridge */
+.main_menu * {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

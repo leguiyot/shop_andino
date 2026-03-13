@@ -1,0 +1,504 @@
+/* Responsive Styles - Estilos responsivos para todas las páginas */
+
+/* Variables CSS para breakpoints consistentes */
+:root {
+    --breakpoint-lg: 1200px;
+    --breakpoint-md: 992px;
+    --breakpoint-sm: 768px;
+    --breakpoint-xs: 576px;
+    --breakpoint-xxs: 480px;
+}
+
+/* Extra Large Screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1280px;
+    }
+    
+    .woocommerce ul.products li.product {
+        width: 22%;
+    }
+    
+    .content-area {
+        padding: 0 40px;
+    }
+}
+
+/* Large Screens */
+@media (max-width: 1199px) and (min-width: 993px) {
+    .container {
+        max-width: 1140px;
+        padding: 0 20px;
+    }
+    
+    .woocommerce ul.products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .site-header .container {
+        padding: 0 15px;
+    }
+    
+    .main-navigation .menu li a {
+        padding: 0 12px;
+    }
+}
+
+/* Medium Screens */
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+        padding: 0 15px;
+    }
+    
+    /* Header ajustes */
+    .site-header {
+        height: 75px;
+    }
+    
+    .site-header .container {
+        height: 75px;
+    }
+    
+    .main-navigation .menu li a {
+        line-height: 75px;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    
+    .main-navigation .actions {
+        gap: 15px;
+    }
+    
+    .main-navigation .search-icon,
+    .main-navigation .cart-icon {
+        font-size: 18px;
+    }
+    
+    /* Grid ajustes */
+    .woocommerce ul.products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .shop-page {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .shop-sidebar {
+        order: -1;
+        margin-bottom: 30px;
+    }
+    
+    .shop-sidebar .widget {
+        display: inline-block;
+        width: calc(50% - 10px);
+        margin-right: 20px;
+        vertical-align: top;
+    }
+    
+    /* Content ajustes */
+    .page-header {
+        padding: 40px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .content-area {
+        padding: 0 15px;
+    }
+}
+
+/* Small Screens (Tablets) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 0 15px;
+    }
+    
+    /* Header móvil */
+    .site-header {
+        height: 65px;
+    }
+    
+    .site-header .container {
+        height: 65px;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+    
+    .site-branding {
+        z-index: 1010;
+    }
+    
+    .site-branding h1 {
+        font-size: 1.3rem;
+    }
+    
+    /* Mobile menu hamburger */
+    .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1010;
+    }
+    
+    .mobile-menu-toggle span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Menu móvil */
+    .main-navigation {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        padding-top: 80px;
+    }
+    
+    .main-navigation.active {
+        left: 0;
+    }
+    
+    .main-navigation .menu {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+    }
+    
+    .main-navigation .menu li {
+        margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-navigation .menu li a {
+        line-height: 1.5;
+        padding: 15px 0;
+        display: block;
+        font-size: 16px;
+    }
+    
+    .main-navigation .actions {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        gap: 10px;
+    }
+    
+    /* Overlay para menu móvil */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Grid productos */
+    .woocommerce ul.products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .woocommerce ul.products li.product .woocommerce-loop-product__title {
+        font-size: 14px;
+    }
+    
+    .woocommerce ul.products li.product .price {
+        font-size: 15px;
+    }
+    
+    /* Shop sidebar móvil */
+    .shop-sidebar .widget {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+    
+    /* Page header */
+    .page-header {
+        padding: 30px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    /* Botones */
+    .woocommerce .button,
+    .woocommerce button.button,
+    .woocommerce input.button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    /* Pagination */
+    .woocommerce nav.woocommerce-pagination ul li a,
+    .woocommerce nav.woocommerce-pagination ul li span {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Extra Small Screens (Móviles) */
+@media (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    /* Header extra pequeño */
+    .site-header {
+        height: 60px;
+    }
+    
+    .site-header .container {
+        height: 60px;
+        padding: 0 10px;
+    }
+    
+    .site-branding h1 {
+        font-size: 1.2rem;
+    }
+    
+    /* Menu móvil más angosto */
+    .main-navigation {
+        width: 85%;
+        max-width: 280px;
+        padding-top: 70px;
+    }
+    
+    .main-navigation .menu {
+        padding: 15px;
+    }
+    
+    .main-navigation .menu li a {
+        padding: 12px 0;
+        font-size: 15px;
+    }
+    
+    /* Productos en columna única */
+    .woocommerce ul.products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .woocommerce ul.products li.product {
+        text-align: center;
+    }
+    
+    .woocommerce ul.products li.product img {
+        margin-bottom: 8px;
+    }
+    
+    .woocommerce ul.products li.product .woocommerce-loop-product__title {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    
+    .woocommerce ul.products li.product .price {
+        font-size: 14px;
+    }
+    
+    /* Page header pequeño */
+    .page-header {
+        padding: 25px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Botones más pequeños */
+    .woocommerce .button,
+    .woocommerce button.button,
+    .woocommerce input.button {
+        padding: 8px 15px;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Cart en header más pequeño */
+    .main-navigation .cart-icon {
+        font-size: 16px;
+    }
+    
+    .main-navigation .cart-count {
+        font-size: 10px;
+        min-width: 16px;
+        height: 16px;
+        line-height: 16px;
+    }
+}
+
+/* Extra Extra Small Screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 8px;
+    }
+    
+    /* Header ultra compacto */
+    .site-header {
+        height: 55px;
+    }
+    
+    .site-header .container {
+        height: 55px;
+        padding: 0 8px;
+    }
+    
+    .site-branding h1 {
+        font-size: 1.1rem;
+    }
+    
+    .mobile-menu-toggle {
+        width: 22px;
+        height: 18px;
+    }
+    
+    /* Menu móvil ajustado */
+    .main-navigation {
+        width: 90%;
+        padding-top: 65px;
+    }
+    
+    .main-navigation .menu {
+        padding: 12px;
+    }
+    
+    .main-navigation .menu li a {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+    
+    /* Una sola columna de productos en móviles muy pequeños */
+    .woocommerce ul.products {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Page header mínimo */
+    .page-header {
+        padding: 20px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+    
+    /* Widgets sidebar */
+    .shop-sidebar .widget {
+        margin-bottom: 20px;
+    }
+    
+    .shop-sidebar .widget h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    /* Search overlay responsivo */
+    .search-overlay {
+        padding: 20px 15px;
+    }
+    
+    .search-overlay .search-form input {
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .site-header {
+        height: 55px;
+    }
+    
+    .site-header .container {
+        height: 55px;
+    }
+    
+    .main-navigation {
+        padding-top: 65px;
+    }
+    
+    .page-header {
+        padding: 20px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .main-navigation .cart-icon,
+    .main-navigation .search-icon {
+        transform: translateZ(0); /* Fuerza aceleración por hardware */
+    }
+}
+
+/* Print styles */
+@media print {
+    .site-header,
+    .site-footer,
+    .shop-sidebar,
+    .mobile-menu-toggle,
+    .main-navigation .actions {
+        display: none !important;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .woocommerce ul.products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}
