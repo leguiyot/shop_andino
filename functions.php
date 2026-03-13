@@ -11,7 +11,11 @@ if (!defined('ABSPATH')) {
 }
 
 // Customizer
-require get_template_directory() . '/inc/customizer.php';
+$_customizer_file = get_template_directory() . '/inc/customizer.php';
+if ( file_exists( $_customizer_file ) ) {
+    require_once $_customizer_file;
+}
+unset( $_customizer_file );
 
 /**
  * Configuración del tema
