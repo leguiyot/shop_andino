@@ -46,7 +46,14 @@
                     <div class="container_inner">
                         <div class="footer_bottom_inner">
                             <div class="footer_copyright">
-                                <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. <?php _e('Todos los derechos reservados.', 'planandino-shop'); ?></p>
+                                <?php
+                                $custom_copy = get_theme_mod( 'footer_copyright_text', '' );
+                                if ( $custom_copy ) {
+                                    echo '<p class="footer-copyright-text">' . wp_kses_post( $custom_copy ) . '</p>';
+                                } else {
+                                    echo '<p class="footer-copyright-text">&copy; ' . esc_html( date('Y') ) . ' ' . esc_html( get_bloginfo('name') ) . '. ' . esc_html__( 'Todos los derechos reservados.', 'planandino-shop' ) . '</p>';
+                                }
+                                ?>
                             </div>
                             
                             <?php if (has_nav_menu('footer')): ?>

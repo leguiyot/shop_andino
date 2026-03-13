@@ -8,7 +8,15 @@
 </head>
 <body <?php body_class(); ?>>
 
-<div class="side_menu_button" style="height:85px"></div>
+<?php
+$_header_height = (int) get_theme_mod( 'header_height', 85 );
+$_hero_enable   = (bool) get_theme_mod( 'header_hero_enable', false );
+$_hero_image    = get_theme_mod( 'header_hero_image', '' );
+$_hero_height   = (int) get_theme_mod( 'header_hero_height', 450 );
+$_hero_title    = get_theme_mod( 'header_hero_title', '' );
+$_hero_overlay  = get_theme_mod( 'header_hero_overlay', 'rgba(0,0,0,0.3)' );
+?>
+<div class="side_menu_button" style="height:<?php echo esc_attr( $_header_height ); ?>px"></div>
 
 <header class="header_holder">
     <div class="header_inner clearfix">
@@ -44,6 +52,18 @@
         </div>
     </div>
 </header>
+
+<?php if ( $_hero_enable && $_hero_image ) : ?>
+<!-- Hero image full-width -->
+<div class="planandino-hero" style="height:<?php echo esc_attr( $_hero_height ); ?>px; background-image:url('<?php echo esc_url( $_hero_image ); ?>'); background-size:cover; background-position:center; position:relative;">
+    <div class="hero-overlay" style="position:absolute;inset:0;background:<?php echo esc_attr( $_hero_overlay ); ?>;"></div>
+    <?php if ( $_hero_title ) : ?>
+    <div class="hero-content" style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;">
+        <h2 class="hero-title" style="color:#fff;margin:0;text-align:center;"><?php echo esc_html( $_hero_title ); ?></h2>
+    </div>
+    <?php endif; ?>
+</div>
+<?php endif; ?>
 
 <!-- Formulario de búsqueda oculto -->
 <div class="search_form_overlay">

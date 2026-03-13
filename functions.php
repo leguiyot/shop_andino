@@ -10,6 +10,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Customizer
+require get_template_directory() . '/inc/customizer.php';
+
 /**
  * Configuración del tema
  */
