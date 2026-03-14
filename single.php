@@ -7,6 +7,11 @@
 
 get_header(); ?>
 
+<div class="content">
+    <div class="content_inner">
+        <div class="column1">
+            <div class="column_inner">
+
 <?php while (have_posts()): the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <header class="entry-header">
@@ -92,5 +97,8 @@ get_header(); ?>
         <?php endif; ?>
     </article>
 <?php endwhile; ?>
+
+            </div><!-- .column_inner -->
+        </div><!-- .column1 -->
 
 <?php get_footer(); ?>

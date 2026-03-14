@@ -7,6 +7,11 @@
 
 get_header(); ?>
 
+<div class="content">
+    <div class="content_inner">
+        <div class="column1">
+            <div class="column_inner">
+
 <?php if (have_posts()): ?>
     <div class="blog-posts">
         <?php while (have_posts()): the_post(); ?>
@@ -62,5 +67,8 @@ get_header(); ?>
         <p><?php _e('Lo sentimos, no hay contenido disponible en este momento.', 'planandino-shop'); ?></p>
     </div>
 <?php endif; ?>
+
+            </div><!-- .column_inner -->
+        </div><!-- .column1 -->
 
 <?php get_footer(); ?>

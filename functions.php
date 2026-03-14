@@ -92,6 +92,13 @@ function planandino_shop_scripts() {
 add_action('wp_enqueue_scripts', 'planandino_shop_scripts');
 
 /**
+ * Sincronizar columnas del loop de productos con el Customizer
+ */
+add_filter('loop_shop_columns', function() {
+    return (int) get_theme_mod('shop_columns', 3);
+});
+
+/**
  * Registrar widgets
  */
 function planandino_shop_widgets_init() {

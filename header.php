@@ -16,8 +16,6 @@ $_hero_height   = (int) get_theme_mod( 'header_hero_height', 450 );
 $_hero_title    = get_theme_mod( 'header_hero_title', '' );
 $_hero_overlay  = get_theme_mod( 'header_hero_overlay', 'rgba(0,0,0,0.3)' );
 ?>
-<div class="side_menu_button" style="height:<?php echo esc_attr( $_header_height ); ?>px"></div>
-
 <header class="header_holder">
     <div class="header_inner clearfix">
         <div class="header_logo">
